@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { loadRemoteEntry, loadRemoteModule } from 'src/utils';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'id-test';
+  loadAbout() {
+    
+  }
 }

@@ -25,9 +25,10 @@ const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPl
             // For hosts (please adjust)
             
             remotes: {
-                'remote1': "remote1@http://localhost:4201/remoteEntry.js" 
+                'remote1': "remote1" 
+                // 'remote1': "remote1@http://localhost:4201/remoteEntry.js" 
             },
-            
+            remoteType: 'var',
 
             shared: ["@angular/core", "@angular/common", "@angular/router"]
         })
