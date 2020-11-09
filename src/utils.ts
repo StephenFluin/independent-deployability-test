@@ -34,9 +34,10 @@ export function loadRemoteEntry(remoteEntry: string): Promise<void> {
 }
  
 export async function lookupExposedModule<T>(remoteName: string, exposedModule: string): Promise<T> {
-      const container = window[remoteName] as Container;
+      const container = await initRemote(remoteName);
       const factory = await container.get(exposedModule);
       const Module = factory();
+      console.log('module is',Module,'in lookupExposedModule');
       return Module as T;
 }
  
