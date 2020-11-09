@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "serve": "concurrently 'ng serve' 'ng serve --project=remote1'",
+    "build": "concurrently 'ng build --prod' 'ng build --prod --project=remote1'",
+    "serve:prod": "concurrently \"cd id-test;python -m SimpleHTTPServer 4200\" \"cd remote1;python -m SimpleHTTPServer 4201\"",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

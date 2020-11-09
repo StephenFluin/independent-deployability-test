@@ -2,20 +2,17 @@ const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPl
 
     module.exports = {
       output: {
-        publicPath: "http://localhost:4201/",
         uniqueName: "remote1"
       },
       optimization: {
-        // Only needed to bypass a temporary bug
+        // Only needed to bypass a temporary bug in Angular CLI's webpack support
         runtimeChunk: false
       },
       plugins: [
         new ModuleFederationPlugin({
           
             // For remotes (please adjust)
-            
             name: "remote1",
-            library: { type: "var", name: "remote1" },
             filename: "remoteEntry.js",
             exposes: {
                 './about.module': './projects/remote1/src/about/about.module.ts',
